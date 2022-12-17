@@ -1,4 +1,4 @@
-﻿using System.CodeDom.Compiler;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -12,8 +12,6 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-
-
 class Result
 {
 
@@ -22,7 +20,12 @@ class Result
      *
      * The function is expected to return an INTEGER.
      * The function accepts INTEGER_ARRAY arr as parameter.
+     Constraints:
+        1 <= n <= 1000001
+        n is odd
+        -10000 <= arr[i] <= 10000
      */
+
     public static List<int> sortArray(List<int> array, int leftIndex, int rightIndex)
     {
         var i = leftIndex;
@@ -75,6 +78,7 @@ class Solution
 {
     public static void Main(string[] args)
     {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         int n = Convert.ToInt32(Console.ReadLine().Trim());
 
@@ -82,8 +86,9 @@ class Solution
 
         int? result = Result.findMedian(arr);
 
-        Console.WriteLine(result);
+        textWriter.WriteLine(result);
 
-        Console.ReadLine();
+        textWriter.Flush();
+        textWriter.Close();
     }
 }
